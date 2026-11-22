@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PS Roblox - Home</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #111318;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    height: 70px;
+    background: #191c23;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    border-bottom: 1px solid #30343e;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ff3038;
+}
+
+.layout {
+    display: flex;
+    min-height: calc(100vh - 70px);
+}
+
+nav {
+    width: 220px;
+    background: #191c23;
+    padding: 25px 15px;
+}
+
+nav a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    padding: 15px;
+    margin-bottom: 8px;
+    border-radius: 9px;
+}
+
+nav a:hover, nav a.active {
+    background: #30343e;
+    color: white;
+}
+
+main {
+    padding: 35px;
+    flex: 1;
+}
+
+h1 { font-size: 32px; }
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #20242d;
+    border: 1px solid #343945;
+    padding: 25px;
+    border-radius: 14px;
+}
+
+.card h2 {
+    font-size: 17px;
+    color: #aaa;
+}
+
+.number {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.welcome {
+    background: linear-gradient(120deg, #a51d29, #29202a);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+max-width:650px {
+    nav { width: 75px; padding: 12px 5px; }
+    nav a { font-size: 0; text-align: center; }
+    nav a span { font-size: 22px; }
+    main { padding: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">PS ROBLOX</div>
+    <div id="username">User</div>
+</header>
+
+<div class="layout">
+
+<nav>
+    <a href="home.html" class="active"><span>🏠</span> Home</a>
+    <a href="friends.html"><span>👥</span> Friends</a>
+    <a href="profile.html"><span>👤</span> Profile</a>
+    <a href="games.html"><span>🎮</span> Games</a>
+</nav>
+
+<main>
+
+<div class="welcome">
+    <h1>Welcome to PS Roblox!</h1>
+    <p>Play, create and hang out with your friends.</p>
+</div>
+
+<div class="cards">
+
+    <div class="card">
+        <h2>👥 Users online</h2>
+        <div class="number" id="online">0</div>
+    </div>
+
+    <div class="card">
+        <h2>🏠 People in rooms</h2>
+        <div class="number" id="rooms">0</div>
+    </div>
+
+    <div class="card">
+        <h2>👤 My Profile</h2>
+        <div class="number">1</div>
+    </div>
+
+    <div class="card">
+        <h2>🎮 Games</h2>
+        <div class="number">0</div>
+    </div>
+
+</div>
+
+</main>
+</div>
+
+<script>
+const user = localStorage.getItem("ps_username");
+document.getElementById("username").textContent =
+    user || "Guest";
+</script>
+
+</body>
+</html>
