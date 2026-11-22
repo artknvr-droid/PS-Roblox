@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PS Roblox - Create Account</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #101014;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.left {
+  width: 55%;
+  padding: 35px 6%;
+  background: #15151b;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 45px;
+}
+
+.logo span {
+  color: #ff3535;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #aaa;
+  margin-bottom: 35px;
+}
+
+label {
+  display: block;
+  margin: 17px 0 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 15px;
+  background: #20232d;
+  border: 1px solid #444957;
+  border-radius: 9px;
+  color: white;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: #ff3535;
+}
+
+.birthday {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: 0;
+  border-radius: 9px;
+  background: #ff3535;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 22px;
+}
+
+button:hover {
+  background: #d82020;
+}
+
+.discord {
+  background: #34394c;
+  margin-top: 0;
+}
+
+.login {
+  text-align: center;
+  margin-top: 25px;
+  color: #aaa;
+}
+
+.login a {
+  color: #ff5555;
+  text-decoration: none;
+}
+
+.right {
+  flex: 1;
+  background:
+    radial-gradient(circle at 75% 20%, #a51d27, transparent 45%),
+    linear-gradient(145deg, #351018, #111117 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px;
+}
+
+.right h2 {
+  font-size: 48px;
+}
+
+.right p {
+  color: #ddd;
+}
+
+.message {
+  color: #ff7777;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+max-width: 750px {
+  .right {
+    display: none;
+  }
+  .left {
+    width: 100%;
+    padding: 25px;
+  }
+  h1 {
+    font-size: 34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left">
+
+<div class="logo">PS <span>ROBLOX</span></div>
+
+<section id="signup">
+
+<h1>Create account</h1>
+<p class="subtitle">
+Play, create, and hang out with your friends.
+</p>
+
+<label>Discord</label>
+<button class="discord" onclick="alert('Discord linking coming soon!')">
+🎮 Link Discord
+</button>
+
+<form id="registerForm">
+
+<label>Birthday</label>
+<div class="birthday">
+<select id="month" required>
+<option value="">Month</option>
+<option>January</option>
+<option>February</option>
+<option>March</option>
+<option>April</option>
+<option>May</option>
+<option>June</option>
+<option>July</option>
+<option>August</option>
+<option>September</option>
+<option>October</option>
+<option>November</option>
+<option>December</option>
+</select>
+
+<select id="day" required>
+<option value="">Day</option>
+</select>
+
+<select id="year" required>
+<option value="">Year</option>
+</select>
+</div>
+
+<label>Username</label>
+<input id="username" placeholder="Don't use your real name" required maxlength="20">
+
+<label>Display name optional</label>
+<input id="displayName" placeholder="What your friends see" maxlength="30">
+
+<label>Password</label>
+<input id="password" type="password" placeholder="At least 8 characters" required minlength="8">
+
+<label>Confirm password</label>
+<input id="confirmPassword" type="password" placeholder="Confirm your password" required>
+
+<button type="submit">Sign up</button>
+
+<p id="message" class="message"></p>
+
+</form>
+
+<div class="login">
+Already have an account?
+<a href="#" onclick="showLogin(event)">Log in</a>
+</div>
+
+</section>
+
+<section id="login" class="hidden">
+
+<h1>Welcome back!</h1>
+<p class="subtitle">Log in to PS Roblox.</p>
+
+<label>Username</label>
+<input placeholder="Your username">
+
+<label>Password</label>
+<input type="password" placeholder="Your password">
+
+<button onclick="alert('Login backend coming soon!')">Log in</button>
+
+<div class="login">
+<a href="#"
+
+
+onclick="showSignup(event)">Create account</a>
+</div>
+
+</section>
+
+</div>
+
+<div class="right">
+<div>
+<h2>PLAY.
+CREATE.
+CONNECT.</h2>
+<p>Welcome to the PS Roblox universe.</p>
+</div>
+</div>
+
+</div>
+
+<script>
+const day = document.getElementById("day");
+const year = document.getElementById("year");
+
+for(let i=1; i<=31; i++) {
+  day.add(new Option(i,i));
+}
+
+for(let i=2014; i>=1950; i--) {
+  year.add(new Option(i,i));
+}
+
+document.getElementById("registerForm")
+.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const password = document.getElementById("password").value;
+  const confirm = document.getElementById("confirmPassword").value;
+  const message = document.getElementById("message");
+
+  if(password !== confirm) {
+    message.textContent = "Passwords do not match!";
+    return;
+  }
+
+  message.textContent =
+    "Registration UI ready! Connect Supabase Auth to create your account.";
+});
+
+function showLogin(e) {
+  e.preventDefault();
+  document.getElementById("signup").classList.add("hidden");
+  document.getElementById("login").classList.remove("hidden");
+}
+
+function showSignup(e) {
+  e.preventDefault();
+  document.getElementById("login").classList.add("hidden");
+  document.getElementById("signup").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
