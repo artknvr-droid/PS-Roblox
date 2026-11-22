@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #111116;
+  --panel: #1c1c24;
+  --panel-hover: #292933;
+  --red: #ff303b;
+  --text: #ffffff;
+  --muted: #a5a5b0;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: var(--panel);
+  border-bottom: 1px solid #33333d;
+  padding: 16px 25px;
+}
+
+.logo {
+  color: var(--red);
+  font-size: 27px;
+  font-weight: 900;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 12px 17px;
+  border-radius: 9px;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--red);
+}
+
+main {
+  width: min(1100px, 94%);
+  margin: 30px auto;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid #33333d;
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 18px;
+}
+
+button {
+  background: var(--red);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 13px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(.85);
+}
+
+input, select {
+  width: 100%;
+  padding: 14px;
+  background: #292933;
+  color: white;
+  border: 1px solid #454550;
+  border-radius: 9px;
+  margin: 8px 0;
+}
+
+input:focus, select:focus {
+  outline: 2px solid var(--red);
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+.game-card {
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 20px;
+  transition: .2s;
+}
+
+.game-card:hover {
+  background: var(--panel-hover);
+  transform: translateY(-3px);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+max-width:600px {
+  header {
+    padding: 14px;
+  }
+
+  main {
+    margin: 18px auto;
+  }
+
+  nav a {
+    padding: 10px;
+  }
+}
